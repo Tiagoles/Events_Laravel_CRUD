@@ -1,0 +1,438 @@
+* {
+    font-family: 'roboto';
+}
+
+html,
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+}
+
+input:focus:not(#imageEvent),
+textarea:focus,
+select:focus {
+    border-bottom: 2px solid #ff7a30;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    box-shadow: 0 0 0 0 !important;
+    outline: 0 !important;
+}
+
+
+/*Msg de sucesso abaixo*/
+#success,
+#error {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    color: #000;
+}
+
+#success {
+    background-color: #a3ffa4;
+
+}
+
+#error {
+    background-color: #e20029;
+
+}
+
+.navbar {
+    background-color: #eeecef;
+    letter-spacing: 1.5px;
+}
+
+#logoHdc {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.container_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+li,
+#btnLoggout {
+    list-style: none;
+    display: inline;
+    margin: 0 0 0 10px;
+}
+
+li a,
+#btnLoggout {
+    text-decoration: none;
+    display: inline;
+    color: #000;
+    transition: .5s;
+}
+
+li a:hover,
+#btnLoggout:hover {
+    color: #ff7a30;
+}
+
+#btnLoggout {
+    border: none;
+    letter-spacing: 1.5px;
+    background-color: transparent;
+}
+
+#formLoggout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 18px;
+}
+
+
+.form_event_create:not(#imageEvent) {
+    outline: none;
+    padding: 0 0px 5px 0;
+
+}
+
+#title_search {
+    color: #ff7a30;
+    text-shadow: 0 0 3px #ff7a30;
+    margin-bottom: 2rem;
+}
+
+#title_search,
+#search {
+    text-align: center;
+}
+
+
+#search {
+    height: 3.5rem;
+    width: 18rem;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #ff7a30;
+    outline: none;
+    color: white;
+}
+
+#search::placeholder {
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+
+
+
+#search_container {
+    background-image: url("/img/star.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    padding: 50px;
+}
+
+#search_input_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+
+.title_event_container,
+.show_next_events {
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.card_container {
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 40px;
+
+}
+
+.card {
+    width: 250px;
+}
+
+.card p,
+.card h3 {
+    margin-bottom: 5px;
+}
+
+.card:not(.btn_card) {
+    padding: 5px;
+}
+
+#img_card {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card_date,
+.card_participants {
+    color: #999;
+
+}
+
+.card_title {
+    font-weight: bold;
+}
+
+.card a {
+    text-decoration: none;
+    color: black;
+    transition: .5s;
+
+
+}
+
+.card a:hover {
+    background-color: #f7f8f8;
+
+}
+
+.noEvents {
+    text-align: center;
+    color: #999;
+    margin: 0 0 60px 0;
+}
+
+/*Create Event*/
+#event_container h1 {
+    text-align: center;
+    padding: 30px;
+}
+
+.btnSubmit:hover {
+    background-color: #4CAF50;
+}
+ 
+
+#event_create_container {
+    padding: 30px;
+}
+
+#event_create_container,
+.form_event_create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#event_create_container label {
+    font-weight: 600;
+    display: block;
+}
+
+.form_event_create {
+    border: none;
+    border-bottom: 2px solid #ff7a30;
+    border-radius: 0;
+    margin-bottom: 10px;
+    outline: none;
+    resize: none;
+}
+
+#LabelprivateOrPublic {
+    margin-top: 10px;
+    display: block;
+}
+
+#container_image_form_event {
+    width: 10px;
+
+}
+
+
+form .btnSubmit {
+    margin: 10px 0 8px 110px;
+
+}
+
+.btnSubmit {
+    background: rgb(73, 203, 73);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 128, 0, 0.2);
+    transition: background-color 0.5s;
+    margin: 0 0 15px 0;
+    text-decoration: none;
+}
+
+#privateOrPublic {
+    height: 30px;
+    width: 180px;
+    transition: .5s;
+}
+
+#privateOrPublic option {
+    background-color: #ff7a30;
+}
+
+/*Create Event*/
+
+#descriptionEvent {
+    width: 360px;
+    height: 35px;
+
+}
+
+#title,
+#city {
+    min-width: 360px;
+}
+
+/*OneEvent*/
+
+
+.infoContainer ion-icon {
+    color: #ff7a30;
+    font-size: 20px;
+}
+
+.containerItems label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.containerItems input[type="checkbox"] {
+    display: none;
+}
+
+.custom-checkbox {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+.custom-checkbox::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #ff7a30;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #00a0d2;
+    display: none;
+    /* Inicialmente oculto */
+    pointer-events: none;
+}
+
+.custom-checkbox.checked::before {
+    background-color: #ff7a30;
+    /* Cor de fundo alterada quando marcado */
+}
+
+.custom-checkbox.checked .checkmark {
+    display: block;
+    /* Exibido quando marcado */
+}
+
+.ContainerItemsIncluse {
+    margin: 2rem 3.5rem 0 0;
+}
+
+/*OneEvent*/
+
+
+/*Dashboard*/
+
+.dashboard-title-container {
+    margin: 30px 0 0 30px;
+}
+
+.dashboard-event-container th {
+    width: 25%;
+
+}
+
+#dashboard-event-title a {
+    color: #ff7a30;
+    transition: .5s;
+    letter-spacing: 1px;
+}
+
+#dashboard-event-title a:hover {
+    font-weight: bolder;
+}
+
+.dashboard-actions,
+#dashboard-event-title a {
+    text-decoration: none;
+
+}
+
+#FormDeleteEvent {
+    display: inline;
+}
+
+
+.modal-title {
+    margin-left: 30%;
+}
+
+.img-preview-container-arrow {
+    margin-top: 15px;
+}
+
+.img-preview-container-arrow span:nth-child(1) {
+    position: absolute;
+    margin: 5px 0 0 5px;
+    cursor: pointer;
+}
+
+/*Dashboard*/
+
+
+/*footer*/
+
+footer {
+    margin-top: auto;
+    background: #eeecef;
+    padding: 30px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    flex-shrink: 0;
+
+}
+
+
+/*footer*/
