@@ -26,16 +26,16 @@ class EventController extends Controller
     }
     public function store(Request $request)
     {
-        try {
+        if(!empty($request->title) && !empty($request->city) &&!empty($request->private) &&!empty($request->description) &&!empty($request->image) &&!empty($request->date) &&!empty($request->items)){
             $event = new Event();
-            $fields = ["title", "city", "private", "description", "image", "date", "items"];
-            foreach ($fields as $field) {
-                if ($request->filled($field)) {
-                    $event->{$field} = $request->{$field};
-                } else {
-                    return redirect("/events/create")->with("error", "O campo $field é obrigatório");
-                }
-            }
+            $event->title  = $request->title;
+            $event->city = $request->city;
+            $event->private = $request->privateOrPublic;
+            $event->description = $request->descriptionEvent;
+            $event->image = $request->image;
+            $event->date = $request->date;
+            $event->items = $request->items;
+    
             if ($request->hasFile("image")) {
                 $requestImage = $request->file("image")->getClientOriginalName();
                 $filename = pathinfo($requestImage, PATHINFO_FILENAME);
@@ -47,14 +47,14 @@ class EventController extends Controller
             } else {
                 $event->image = "/img/banner.jpg";
             }
-
             $user = auth()->user();
             $event->user_id = $user->id;
             $event->save();
-            return redirect("/")->with("success", "Evento criado com Sucesso!");
-        } catch (\Exception $e) {
-            return redirect("/events/create")->with("error", "Não foi possível criar o evento." . $e->getMessage());
         }
+
+
+
+        return redirect("/")->with("success", "Evento criado com Sucesso!");
     }
     public function show($id)
     {
@@ -67,41 +67,27 @@ class EventController extends Controller
         $user = auth()->user();
         $events = $user->events;
         return view("events.dashboard", ["events" => $events]);
+        
     }
-    public function destroy($id)
-    {
+    public function destroy($id){
         Event::findOrFail($id)->delete();
-        return redirect("/dashboard")->with("success", "Evento deletado com sucesso!");
+        return redirect("/dashboard")->with("success", "Evento deletado com sucesso!");     
     }
     public function update(Request $request){
-        
-        try {
-            $data = $request->all();
-            $filteredRequest = array_filter($data, function($value) {
-                if (!is_null($value) && $value !== ''){
-                    return !is_null($value) && $value !== '';
-                } else {
-                    return redirect("/dashboard")->with("error", "Preencha todos os campos!");
-                }
-            });
+      $data = $request->all();
 
-            if ($request->hasFile("image")) {
-                $requestImage = $request->file("image")->getClientOriginalName();
-                $filename = pathinfo($requestImage, PATHINFO_FILENAME);
-                $extension = $request->file("image")->getClientOriginalExtension();
-                $fileNameToStore = $filename . "_" . time() . "." . $extension;
-                $image = $request->file("image");
-                $image->move(public_path("img/events"), $fileNameToStore);
-                $data["image"] = $fileNameToStore;
-            } else {
-                $data["image"] = "/img/banner.jpg";
-            }
-
-
-            Event::findOrFail($request->id)->update($filteredRequest);
-            return redirect("/dashboard")->with("success", "Dados alterados com sucesso!");
-        } catch (\Exception $e) {
-            return redirect("/dashboard")->with("error", "Não foi possivel alterar os dados");
-        }
+      if ($request->hasFile("image")) {
+        $requestImage = $request->file("image")->getClientOriginalName();
+        $filename = pathinfo($requestImage, PATHINFO_FILENAME);
+        $extension = $request->file("image")->getClientOriginalExtension();
+        $fileNameToStore = $filename . "_" . time() . "." . $extension;
+        $image = $request->file("image");
+        $image->move(public_path("img/events"), $fileNameToStore);
+        $data['image'] = $fileNameToStore;
+    } else {
+        $data['image'] = "/img/banner.jpg";
+    }
+    Event::findOrFail($request->id)->update($data);
+      return redirect("/dashboard")->with("msg", "Evento editado com sucesso");
     }
 }
