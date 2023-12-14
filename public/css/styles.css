@@ -265,14 +265,12 @@ li a:hover,
     width: 10px;
 
 }
-
-
-form .btnSubmit {
+form #btnCreateEvent {
     margin: 10px 0 8px 110px;
 
 }
 
-.btnSubmit {
+/* .btnSuccess .btnSubmit {
     background: rgb(73, 203, 73);
     color: #fff;
     padding: 10px 20px;
@@ -282,7 +280,7 @@ form .btnSubmit {
     transition: background-color 0.5s;
     margin: 0 0 15px 0;
     text-decoration: none;
-}
+} */
 
 #privateOrPublic {
     height: 30px;
@@ -365,7 +363,7 @@ form .btnSubmit {
 }
 
 .ContainerItemsIncluse {
-    margin: 2rem 3.5rem 0 0;
+    margin: 1rem 3.5rem 0 0;
 }
 
 /*OneEvent*/

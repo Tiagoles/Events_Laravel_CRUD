@@ -55,7 +55,7 @@
 
                     </div>
                 </div>
-                <button type="submit" class="btnSubmit">Criar Evento</button>
+                <button type="submit" class="btn btn-lg btn-success" id="btnCreateEvent">Criar Evento</button>
             </form>
         </div>
     </div>

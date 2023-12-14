@@ -11992,6 +11992,20 @@ textarea.form-control-lg {
   color: #ff7a30;
   border: 2px solid #ff7a30;
 }
+
+.btn-danger {
+  background-color: #e20029;
+}
+.btn-danger:hover {
+  box-shadow: 0 4px 6px #ff8585;
+}
+
+.btn-success {
+  background: #32af32;
+}
+.btn-success:hover {
+  box-shadow: 0 4px 6px #98e298;
+}
 /*
 ! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
 *//*
@@ -13212,9 +13226,6 @@ select {
 }
 .ms-3 {
   margin-inline-start: 0.75rem;
-}
-.ms-4 {
-  margin-inline-start: 1rem;
 }
 .mt-1 {
   margin-top: 0.25rem;

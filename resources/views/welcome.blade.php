@@ -24,7 +24,7 @@
                     <img src="/img/events/{{ $event->image }}" alt="{{ $event->title }}" id="img_card">
                     <p class="card_date">{{ date('d/m/Y', strtotime($event->date)) }}</p>
                     <h3 class="card_title">{{ Str::ucfirst($event->title) }}</h3>
-                    <p class="card_participants">X participantes</p>
+                    <p class="card_participants">{{count($event->users)}} participantes</p>
                     <a href="/events/{{ $event->id }}" class="btn_card">Saber mais</a>
                 </div>
             @endforeach

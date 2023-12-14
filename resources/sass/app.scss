@@ -1,5 +1,6 @@
 $brand-warning: #ff7a30;
 @import "~bootstrap/scss/bootstrap";
+
 .btn.btn-outline-warning {
     color: $brand-warning;
     border: 2px solid $brand-warning;
@@ -19,5 +20,21 @@ $brand-warning: #ff7a30;
     &:disabled {
         color: $brand-warning;
         border: 2px solid $brand-warning;
+    }
+}
+
+.btn-danger {
+    background-color: #e20029;
+
+    &:hover {
+        box-shadow: 0 4px 6px #ff8585;
+    }
+}
+
+.btn-success {
+    background: #32af32;
+
+    &:hover {
+        box-shadow: 0 4px 6px #98e298;
     }
 }
